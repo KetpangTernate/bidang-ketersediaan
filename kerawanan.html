@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Kerawanan Pangan</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- PANZOOM -->
+  <script src="https://unpkg.com/@panzoom/panzoom/dist/panzoom.min.js"></script>
+
+  <style>
+
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+  </style>
+
+</head>
+
+<body class="bg-gray-100">
+
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+
+    <div class="max-w-7xl mx-auto px-4 py-3">
+
+      <!-- LOGO -->
+      <div class="flex items-center gap-3">
+
+        <img 
+          src="assets/img/logo.png"
+          alt="Logo"
+          class="w-12 h-12 object-contain"
+        >
+
+        <h1 class="text-xl md:text-3xl font-bold text-green-700">
+          Kerawanan Pangan
+        </h1>
+
+      </div>
+
+      <!-- MENU -->
+      <div class="flex gap-3 overflow-x-auto no-scrollbar mt-4">
+
+        <a href="index.html"
+          class="whitespace-nowrap bg-gray-100 hover:bg-green-100 text-gray-700 px-5 py-3 rounded-2xl text-sm font-medium transition">
+
+          Beranda
+
+        </a>
+
+        <a href="dashboard.html"
+          class="whitespace-nowrap bg-gray-100 hover:bg-green-100 text-gray-700 px-5 py-3 rounded-2xl text-sm font-medium transition">
+
+          Dashboard
+
+        </a>
+
+        <a href="ketersediaan.html"
+          class="whitespace-nowrap bg-gray-100 hover:bg-green-100 text-gray-700 px-5 py-3 rounded-2xl text-sm font-medium transition">
+
+          Ketersediaan
+
+        </a>
+
+        <a href="kerawanan.html"
+          class="whitespace-nowrap bg-green-600 text-white px-5 py-3 rounded-2xl text-sm font-semibold shadow-sm">
+
+          Kerawanan
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="pt-40 pb-10 px-4 max-w-6xl mx-auto">
+
+    <!-- HEADER -->
+    <div class="mb-10">
+
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800">
+
+        Informasi Kerawanan Pangan
+
+      </h2>
+
+      <p class="text-gray-500 mt-2">
+
+        Peta FSVA dan tutorial akses Kota Ternate
+
+      </p>
+
+    </div>
+
+    <!-- PETA -->
+    <div class="bg-white rounded-3xl shadow-md overflow-hidden mb-10 p-4">
+
+      <!-- TITLE -->
+      <div class="mb-5">
+
+        <h3 class="text-2xl font-bold text-gray-800">
+
+          Peta FSVA Kota Ternate
+
+        </h3>
+
+      </div>
+
+      <!-- CONTROL -->
+      <div class="flex gap-3 mb-4">
+
+        <!-- ZOOM IN -->
+        <button 
+          id="zoomIn"
+          class="bg-green-600 hover:bg-green-700 text-white w-12 h-12 rounded-xl text-2xl font-bold transition">
+
+          +
+
+        </button>
+
+        <!-- ZOOM OUT -->
+        <button 
+          id="zoomOut"
+          class="bg-red-500 hover:bg-red-600 text-white w-12 h-12 rounded-xl text-2xl font-bold transition">
+
+          −
+
+        </button>
+
+      </div>
+
+      <!-- MAP -->
+      <div 
+        class="overflow-hidden rounded-2xl border border-gray-200 bg-gray-100">
+
+        <div id="panzoom-element">
+
+          <img 
+            src="assets/img/peta/peta-ternate.png"
+            alt="Peta Ternate"
+            class="w-full select-none"
+            draggable="false"
+          >
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- VIDEO -->
+    <div class="bg-white rounded-3xl shadow-md p-6 mb-10">
+
+      <h3 class="text-2xl font-bold text-gray-800 mb-5">
+
+        Tutorial Akses FSVA Kota Ternate
+
+      </h3>
+
+      <video 
+        controls
+        class="w-full rounded-2xl">
+
+        <source 
+          src="assets/img/peta/tutorial-fsva.mp4"
+          type="video/mp4">
+
+      </video>
+
+    </div>
+
+    <!-- BUTTON -->
+    <div class="text-center">
+
+      <a 
+        href="https://fsva.badanpangan.go.id/"
+        target="_blank"
+        class="inline-block bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-2xl text-lg font-semibold shadow-md transition">
+
+        Buka Website FSVA
+
+      </a>
+
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-green-700 text-white py-6 mt-10">
+
+    <div class="max-w-7xl mx-auto px-4 text-center">
+
+      <p class="text-sm">
+
+        © 2026 Dinas Ketahanan Pangan Kota Ternate
+
+      </p>
+
+    </div>
+
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+
+    // ELEMENT
+    const elem = document.getElementById('panzoom-element');
+
+    // PANZOOM
+    const panzoom = Panzoom(elem, {
+
+      maxScale: 5,
+      minScale: 1,
+      contain: 'outside'
+
+    });
+
+    // WHEEL ZOOM
+    elem.parentElement.addEventListener(
+      'wheel',
+      panzoom.zoomWithWheel
+    );
+
+    // BUTTON +
+    document
+      .getElementById('zoomIn')
+      .addEventListener('click', () => {
+
+        panzoom.zoomIn();
+
+      });
+
+    // BUTTON -
+    document
+      .getElementById('zoomOut')
+      .addEventListener('click', () => {
+
+        panzoom.zoomOut();
+
+      });
+
+  </script>
+
+</body>
+</html>
