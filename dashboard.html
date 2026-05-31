@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="id">
 
@@ -44,6 +43,16 @@
       }
     }
 
+    .tab-active{
+      background:#16a34a;
+      color:white;
+    }
+
+    .tab-inactive{
+      background:#f3f4f6;
+      color:#374151;
+    }
+
   </style>
 
 </head>
@@ -55,7 +64,6 @@
 
     <div class="max-w-7xl mx-auto px-4 py-3">
 
-      <!-- LOGO -->
       <div class="flex items-center gap-3">
 
         <img
@@ -70,7 +78,6 @@
 
       </div>
 
-      <!-- MENU -->
       <div class="flex gap-3 overflow-x-auto no-scrollbar mt-4">
 
         <a href="index.html"
@@ -115,15 +122,58 @@
 
     </div>
 
-    <!-- DASHBOARD LOOKER STUDIO -->
-    <div class="bg-white rounded-3xl shadow-md overflow-hidden p-2">
+    <!-- TOMBOL DASHBOARD -->
+    <div class="flex flex-wrap gap-3 mb-6">
 
-      <iframe
-        class="dashboard-frame"
-        src="https://datastudio.google.com/embed/reporting/9a1d3f3e-fc8d-46ee-b3cd-b125940086cc/page/aLkzF"
-        allowfullscreen
-        sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
-      </iframe>
+      <button
+        id="btnRingkasan"
+        onclick="showDashboard('ringkasan')"
+        class="tab-active px-6 py-3 rounded-2xl font-semibold transition">
+
+        Ringkasan Stok Pangan
+
+      </button>
+
+      <button
+        id="btnAnalisis"
+        onclick="showDashboard('analisis')"
+        class="tab-inactive px-6 py-3 rounded-2xl font-semibold transition">
+
+        Analisis Per Komoditas
+
+      </button>
+
+    </div>
+
+    <!-- DASHBOARD RINGKASAN -->
+    <div id="ringkasan">
+
+      <div class="bg-white rounded-3xl shadow-md overflow-hidden p-2">
+
+        <iframe
+          class="dashboard-frame"
+          src="https://datastudio.google.com/embed/reporting/9a1d3f3e-fc8d-46ee-b3cd-b125940086cc/page/aLkzF"
+          allowfullscreen
+          sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+        </iframe>
+
+      </div>
+
+    </div>
+
+    <!-- DASHBOARD ANALISIS -->
+    <div id="analisis" style="display:none;">
+
+      <div class="bg-white rounded-3xl shadow-md overflow-hidden p-2">
+
+        <iframe
+          class="dashboard-frame"
+          src="https://datastudio.google.com/embed/reporting/f0c19ad6-4d03-4e1f-99b2-32eb4022fd7e/page/aLkzF"
+          allowfullscreen
+          sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+        </iframe>
+
+      </div>
 
     </div>
 
@@ -142,6 +192,40 @@
 
   </footer>
 
+  <script>
+
+    function showDashboard(menu){
+
+      document.getElementById("ringkasan").style.display = "none";
+      document.getElementById("analisis").style.display = "none";
+
+      document.getElementById("btnRingkasan").className =
+        "tab-inactive px-6 py-3 rounded-2xl font-semibold transition";
+
+      document.getElementById("btnAnalisis").className =
+        "tab-inactive px-6 py-3 rounded-2xl font-semibold transition";
+
+      if(menu === "ringkasan"){
+
+        document.getElementById("ringkasan").style.display = "block";
+
+        document.getElementById("btnRingkasan").className =
+          "tab-active px-6 py-3 rounded-2xl font-semibold transition";
+
+      }
+
+      if(menu === "analisis"){
+
+        document.getElementById("analisis").style.display = "block";
+
+        document.getElementById("btnAnalisis").className =
+          "tab-active px-6 py-3 rounded-2xl font-semibold transition";
+
+      }
+
+    }
+
+  </script>
+
 </body>
 </html>
-```
