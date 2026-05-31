@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 
@@ -10,9 +11,6 @@
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Chart JS -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
   <!-- FONT -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,17 +19,29 @@
 
   <style>
 
-    body {
-      font-family: 'Poppins', sans-serif;
+    body{
+      font-family:'Poppins',sans-serif;
     }
 
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
+    .no-scrollbar::-webkit-scrollbar{
+      display:none;
     }
 
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
+    .no-scrollbar{
+      -ms-overflow-style:none;
+      scrollbar-width:none;
+    }
+
+    .dashboard-frame{
+      width:100%;
+      height:2200px;
+      border:none;
+    }
+
+    @media(max-width:768px){
+      .dashboard-frame{
+        height:2800px;
+      }
     }
 
   </style>
@@ -48,16 +58,14 @@
       <!-- LOGO -->
       <div class="flex items-center gap-3">
 
-        <img 
+        <img
           src="assets/img/logo.png"
           alt="Logo"
           class="w-12 h-12 object-contain"
         >
 
         <h1 class="text-xl md:text-3xl font-bold text-green-700">
-         
           Panel Informasi Binketra
-          
         </h1>
 
       </div>
@@ -67,30 +75,22 @@
 
         <a href="index.html"
           class="whitespace-nowrap bg-gray-100 hover:bg-green-100 text-gray-700 px-5 py-3 rounded-2xl text-sm font-medium transition">
-
           Beranda
-
         </a>
 
         <a href="dashboard.html"
           class="whitespace-nowrap bg-green-600 text-white px-5 py-3 rounded-2xl text-sm font-semibold shadow-sm">
-
           Dashboard
-
         </a>
 
         <a href="ketersediaan.html"
           class="whitespace-nowrap bg-gray-100 hover:bg-green-100 text-gray-700 px-5 py-3 rounded-2xl text-sm font-medium transition">
-
           Ketersediaan
-
         </a>
 
         <a href="kerawanan.html"
           class="whitespace-nowrap bg-gray-100 hover:bg-green-100 text-gray-700 px-5 py-3 rounded-2xl text-sm font-medium transition">
-
           Kerawanan
-
         </a>
 
       </div>
@@ -103,270 +103,27 @@
   <main class="pt-40 pb-10 px-4 max-w-7xl mx-auto">
 
     <!-- HEADER -->
-    <div class="mb-10">
+    <div class="mb-8">
 
       <h2 class="text-3xl md:text-4xl font-bold text-gray-800">
-
-        Dashboard Ketahanan Pangan
-
+        Dashboard Neraca dan Ketahanan Pangan
       </h2>
 
       <p class="text-gray-500 mt-2">
-
-        Monitoring data ketersediaan dan kerawanan pangan Kota Ternate
-
+        Monitoring ketersediaan, kebutuhan, stok dan ketahanan pangan Kota Ternate
       </p>
 
     </div>
 
-    <!-- STATUS -->
-    <div class="bg-green-600 text-white rounded-3xl p-6 mb-8 shadow-lg">
-
-      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-
-        <div>
-
-          <p class="text-sm opacity-80">
-            Status Ketahanan Pangan
-          </p>
-
-          <h3 class="text-3xl font-bold mt-2">
-            AMAN
-          </h3>
-
-        </div>
-
-        <div>
-
-          <p class="text-sm opacity-80">
-            Update Terakhir
-          </p>
-
-          <h3 class="text-xl font-semibold mt-2">
-            08 Mei 2026
-          </h3>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <!-- CARD STATISTIK -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-5 mb-10">
-
-      <!-- CARD -->
-      <div class="bg-white rounded-3xl shadow-md p-6">
-
-        <p class="text-gray-500 text-sm">
-          Stok Beras
-        </p>
-
-        <h3 class="text-3xl font-bold text-green-700 mt-3">
-          1.240
-        </h3>
-
-        <span class="text-gray-400 text-sm">
-          Ton
-        </span>
-
-      </div>
-
-      <!-- CARD -->
-      <div class="bg-white rounded-3xl shadow-md p-6">
-
-        <p class="text-gray-500 text-sm">
-          Cadangan Pangan
-        </p>
-
-        <h3 class="text-3xl font-bold text-green-700 mt-3">
-          320
-        </h3>
-
-        <span class="text-gray-400 text-sm">
-          Ton
-        </span>
-
-      </div>
-
-      <!-- CARD -->
-      <div class="bg-white rounded-3xl shadow-md p-6">
-
-        <p class="text-gray-500 text-sm">
-          Kecamatan Rawan
-        </p>
-
-        <h3 class="text-3xl font-bold text-red-500 mt-3">
-          2
-        </h3>
-
-        <span class="text-gray-400 text-sm">
-          Wilayah
-        </span>
-
-      </div>
-
-      <!-- CARD -->
-      <div class="bg-white rounded-3xl shadow-md p-6">
-
-        <p class="text-gray-500 text-sm">
-          Harga Cabai
-        </p>
-
-        <h3 class="text-3xl font-bold text-orange-500 mt-3">
-          85K
-        </h3>
-
-        <span class="text-gray-400 text-sm">
-          / Kg
-        </span>
-
-      </div>
-
-    </div>
-
-    <!-- GRAFIK -->
-    <div class="bg-white rounded-3xl shadow-md p-6 mb-10">
-
-      <div class="mb-6">
-
-        <h3 class="text-2xl font-bold text-gray-800">
-
-          Grafik Harga Pangan
-
-        </h3>
-
-        <p class="text-gray-500 mt-1">
-
-          Perkembangan harga pangan mingguan
-
-        </p>
-
-      </div>
-
-      <canvas id="hargaChart"></canvas>
-
-    </div>
-
-    <!-- TABEL -->
-    <div class="bg-white rounded-3xl shadow-md p-6">
-
-      <div class="mb-6">
-
-        <h3 class="text-2xl font-bold text-gray-800">
-
-          Ketersediaan Pangan
-
-        </h3>
-
-        <p class="text-gray-500 mt-1">
-
-          Data stok komoditas pangan
-
-        </p>
-
-      </div>
-
-      <div class="overflow-x-auto">
-
-        <table class="w-full">
-
-          <thead>
-
-            <tr class="border-b">
-
-              <th class="text-left py-4 text-gray-600">
-                Komoditas
-              </th>
-
-              <th class="text-left py-4 text-gray-600">
-                Stok
-              </th>
-
-              <th class="text-left py-4 text-gray-600">
-                Status
-              </th>
-
-            </tr>
-
-          </thead>
-
-          <tbody>
-
-            <!-- ROW -->
-            <tr class="border-b">
-
-              <td class="py-4">
-                Beras
-              </td>
-
-              <td class="py-4">
-                1.240 Ton
-              </td>
-
-              <td class="py-4">
-
-                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">
-
-                  Aman
-
-                </span>
-
-              </td>
-
-            </tr>
-
-            <!-- ROW -->
-            <tr class="border-b">
-
-              <td class="py-4">
-                Jagung
-              </td>
-
-              <td class="py-4">
-                320 Ton
-              </td>
-
-              <td class="py-4">
-
-                <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">
-
-                  Waspada
-
-                </span>
-
-              </td>
-
-            </tr>
-
-            <!-- ROW -->
-            <tr>
-
-              <td class="py-4">
-                Cabai
-              </td>
-
-              <td class="py-4">
-                150 Ton
-              </td>
-
-              <td class="py-4">
-
-                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">
-
-                  Aman
-
-                </span>
-
-              </td>
-
-            </tr>
-
-          </tbody>
-
-        </table>
-
-      </div>
+    <!-- DASHBOARD LOOKER STUDIO -->
+    <div class="bg-white rounded-3xl shadow-md overflow-hidden p-2">
+
+      <iframe
+        class="dashboard-frame"
+        src="https://datastudio.google.com/embed/reporting/9a1d3f3e-fc8d-46ee-b3cd-b125940086cc/page/aLkzF"
+        allowfullscreen
+        sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+      </iframe>
 
     </div>
 
@@ -378,40 +135,13 @@
     <div class="max-w-7xl mx-auto px-4 text-center">
 
       <p class="text-sm">
-
         © 2026 Dinas Ketahanan Pangan Kota Ternate
-
       </p>
 
     </div>
 
   </footer>
 
-  <!-- CHART -->
-  <script>
-
-    const ctx = document.getElementById('hargaChart');
-
-    new Chart(ctx, {
-      type: 'line',
-
-      data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei'],
-
-        datasets: [{
-          label: 'Harga Beras',
-          data: [12000, 12500, 13000, 12800, 13200],
-          borderWidth: 3,
-          tension: 0.4
-        }]
-      },
-
-      options: {
-        responsive: true
-      }
-    });
-
-  </script>
-
 </body>
 </html>
+```
