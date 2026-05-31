@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 
@@ -38,9 +39,11 @@
     }
 
     @media(max-width:768px){
+
       .dashboard-frame{
         height:2800px;
       }
+
     }
 
     .tab-active{
@@ -109,7 +112,6 @@
   <!-- CONTENT -->
   <main class="pt-40 pb-10 px-4 max-w-7xl mx-auto">
 
-    <!-- HEADER -->
     <div class="mb-8">
 
       <h2 class="text-3xl md:text-4xl font-bold text-gray-800">
@@ -122,12 +124,12 @@
 
     </div>
 
-    <!-- TOMBOL DASHBOARD -->
+    <!-- TOMBOL -->
     <div class="flex flex-wrap gap-3 mb-6">
 
       <button
         id="btnRingkasan"
-        onclick="showDashboard('ringkasan')"
+        onclick="showRingkasan()"
         class="tab-active px-6 py-3 rounded-2xl font-semibold transition">
 
         Ringkasan Stok Pangan
@@ -136,7 +138,7 @@
 
       <button
         id="btnAnalisis"
-        onclick="showDashboard('analisis')"
+        onclick="showAnalisis()"
         class="tab-inactive px-6 py-3 rounded-2xl font-semibold transition">
 
         Analisis Per Komoditas
@@ -145,35 +147,16 @@
 
     </div>
 
-    <!-- DASHBOARD RINGKASAN -->
-    <div id="ringkasan">
+    <!-- IFRAME DASHBOARD -->
+    <div class="bg-white rounded-3xl shadow-md overflow-hidden p-2">
 
-      <div class="bg-white rounded-3xl shadow-md overflow-hidden p-2">
-
-        <iframe
-          class="dashboard-frame"
-          src="https://datastudio.google.com/embed/reporting/9a1d3f3e-fc8d-46ee-b3cd-b125940086cc/page/aLkzF"
-          allowfullscreen
-          sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
-        </iframe>
-
-      </div>
-
-    </div>
-
-    <!-- DASHBOARD ANALISIS -->
-    <div id="analisis" style="display:none;">
-
-      <div class="bg-white rounded-3xl shadow-md overflow-hidden p-2">
-
-        <iframe
-          class="dashboard-frame"
-          src="https://datastudio.google.com/embed/reporting/f0c19ad6-4d03-4e1f-99b2-32eb4022fd7e/page/aLkzF"
-          allowfullscreen
-          sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
-        </iframe>
-
-      </div>
+      <iframe
+        id="dashboardFrame"
+        class="dashboard-frame"
+        src="https://datastudio.google.com/embed/reporting/9a1d3f3e-fc8d-46ee-b3cd-b125940086cc/page/aLkzF"
+        allowfullscreen
+        sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+      </iframe>
 
     </div>
 
@@ -194,34 +177,31 @@
 
   <script>
 
-    function showDashboard(menu){
+    const frame = document.getElementById("dashboardFrame");
 
-      document.getElementById("ringkasan").style.display = "none";
-      document.getElementById("analisis").style.display = "none";
+    function showRingkasan(){
+
+      frame.src =
+      "https://datastudio.google.com/embed/reporting/9a1d3f3e-fc8d-46ee-b3cd-b125940086cc/page/aLkzF";
 
       document.getElementById("btnRingkasan").className =
-        "tab-inactive px-6 py-3 rounded-2xl font-semibold transition";
+      "tab-active px-6 py-3 rounded-2xl font-semibold transition";
 
       document.getElementById("btnAnalisis").className =
-        "tab-inactive px-6 py-3 rounded-2xl font-semibold transition";
+      "tab-inactive px-6 py-3 rounded-2xl font-semibold transition";
 
-      if(menu === "ringkasan"){
+    }
 
-        document.getElementById("ringkasan").style.display = "block";
+    function showAnalisis(){
 
-        document.getElementById("btnRingkasan").className =
-          "tab-active px-6 py-3 rounded-2xl font-semibold transition";
+      frame.src =
+      "https://datastudio.google.com/embed/reporting/f0c19ad6-4d03-4e1f-99b2-32eb4022fd7e/page/aLkzF";
 
-      }
+      document.getElementById("btnAnalisis").className =
+      "tab-active px-6 py-3 rounded-2xl font-semibold transition";
 
-      if(menu === "analisis"){
-
-        document.getElementById("analisis").style.display = "block";
-
-        document.getElementById("btnAnalisis").className =
-          "tab-active px-6 py-3 rounded-2xl font-semibold transition";
-
-      }
+      document.getElementById("btnRingkasan").className =
+      "tab-inactive px-6 py-3 rounded-2xl font-semibold transition";
 
     }
 
@@ -229,3 +209,4 @@
 
 </body>
 </html>
+```
