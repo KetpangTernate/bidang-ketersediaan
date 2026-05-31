@@ -3,15 +3,13 @@
 <html lang="id">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Dashboard Ketahanan Pangan</title>
 
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- FONT -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -41,7 +39,7 @@
     @media(max-width:768px){
 
       .dashboard-frame{
-        height:2800px;
+        height:1800px;
       }
 
     }
@@ -72,8 +70,7 @@
         <img
           src="assets/img/logo.png"
           alt="Logo"
-          class="w-12 h-12 object-contain"
-        >
+          class="w-12 h-12 object-contain">
 
         <h1 class="text-xl md:text-3xl font-bold text-green-700">
           Panel Informasi Binketra
@@ -124,8 +121,8 @@
 
     </div>
 
-    <!-- TOMBOL -->
-    <div class="flex flex-wrap gap-3 mb-6">
+    <!-- TAB DASHBOARD -->
+    <div class="flex flex-wrap gap-3 mb-4">
 
       <button
         id="btnRingkasan"
@@ -147,7 +144,22 @@
 
     </div>
 
-    <!-- IFRAME DASHBOARD -->
+    <!-- TOMBOL FULLSCREEN -->
+    <div class="mb-6">
+
+      <a
+        id="btnFullscreen"
+        href="https://datastudio.google.com/embed/reporting/9a1d3f3e-fc8d-46ee-b3cd-b125940086cc/page/aLkzF"
+        target="_blank"
+        class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-2xl font-semibold shadow-md transition">
+
+        🔍 Buka Dashboard Layar Penuh
+
+      </a>
+
+    </div>
+
+    <!-- DASHBOARD -->
     <div class="bg-white rounded-3xl shadow-md overflow-hidden p-2">
 
       <iframe
@@ -178,11 +190,15 @@
   <script>
 
     const frame = document.getElementById("dashboardFrame");
+    const btnFullscreen = document.getElementById("btnFullscreen");
 
     function showRingkasan(){
 
-      frame.src =
+      const url =
       "https://datastudio.google.com/embed/reporting/9a1d3f3e-fc8d-46ee-b3cd-b125940086cc/page/aLkzF";
+
+      frame.src = url;
+      btnFullscreen.href = url;
 
       document.getElementById("btnRingkasan").className =
       "tab-active px-6 py-3 rounded-2xl font-semibold transition";
@@ -194,8 +210,11 @@
 
     function showAnalisis(){
 
-      frame.src =
+      const url =
       "https://datastudio.google.com/embed/reporting/f0c19ad6-4d03-4e1f-99b2-32eb4022fd7e/page/aLkzF";
+
+      frame.src = url;
+      btnFullscreen.href = url;
 
       document.getElementById("btnAnalisis").className =
       "tab-active px-6 py-3 rounded-2xl font-semibold transition";
