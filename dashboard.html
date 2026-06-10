@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 
@@ -6,9 +7,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Dashboard Ketahanan Pangan</title>
-
-<script src="https://cdn.tailwindcss.com"></script>
+<title>Dashboard Ketahanan Pangan Kota Ternate</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,45 +16,61 @@
 
 <style>
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
 body{
     font-family:'Poppins',sans-serif;
-}
-
-.no-scrollbar::-webkit-scrollbar{
-    display:none;
-}
-
-.no-scrollbar{
-    -ms-overflow-style:none;
-    scrollbar-width:none;
-}
-
-/* Container Dashboard */
-
-.dashboard-container{
+    background:#f3f4f6;
+    min-height:100vh;
     display:flex;
     justify-content:center;
-    width:100%;
+    align-items:center;
 }
 
-/* Desktop */
+.container{
+    background:white;
+    padding:40px;
+    border-radius:24px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+    text-align:center;
+    width:90%;
+    max-width:500px;
+}
 
-.dashboard-frame{
-    width:507px;
-    height:2000px;
-    border:none;
-    display:block;
+.logo{
+    width:80px;
+    margin-bottom:20px;
+}
+
+h1{
+    color:#15803d;
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+p{
+    color:#6b7280;
+    margin-bottom:25px;
+}
+
+.loader{
+    width:50px;
+    height:50px;
+    border:5px solid #e5e7eb;
+    border-top:5px solid #16a34a;
+    border-radius:50%;
     margin:0 auto;
+    animation:spin 1s linear infinite;
 }
 
-/* HP */
+@keyframes spin{
 
-@media(max-width:768px){
-
-    .dashboard-frame{
-        width:100vw;
-        height:2200px;
-        margin:0;
+    100%{
+        transform:rotate(360deg);
     }
 
 }
@@ -64,85 +79,47 @@ body{
 
 </head>
 
-<body class="bg-gray-100">
+<body>
 
-<!-- NAVBAR -->
+<div class="container">
 
-<nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+    <h1>Panel Informasi Binketra</h1>
 
-    <div class="max-w-7xl mx-auto px-4 py-3">
+    <p>
+        Membuka Dashboard Ketahanan Pangan Kota Ternate...
+    </p>
 
-        <div class="flex items-center gap-3">
+    <div class="loader"></div>
 
-            <img
-                src="assets/img/logo.png"
-                alt="Logo"
-                class="w-12 h-12 object-contain">
+</div>
 
-            <h1 class="text-xl md:text-3xl font-bold text-green-700">
-                Panel Informasi Binketra
-            </h1>
+<script>
 
-        </div>
+/* Dashboard HP */
 
-        <div class="flex gap-3 overflow-x-auto no-scrollbar mt-4">
+const dashboardHP =
+"https://datastudio.google.com/embed/reporting/35200f89-1e58-4f41-849f-a77bc72dc98b/page/zDtzF";
 
-            <a href="index.html"
-                class="whitespace-nowrap bg-gray-100 hover:bg-green-100 text-gray-700 px-5 py-3 rounded-2xl text-sm font-medium transition">
-                Beranda
-            </a>
+/* Dashboard Desktop */
 
-            <a href="dashboard.html"
-                class="whitespace-nowrap bg-green-600 text-white px-5 py-3 rounded-2xl text-sm font-semibold shadow-sm">
-                Dashboard
-            </a>
+const dashboardDesktop =
+"https://datastudio.google.com/embed/reporting/5229fb2e-2115-43c9-8169-56ff98478d19/page/zDtzF";
 
-            <a href="ketersediaan.html"
-                class="whitespace-nowrap bg-gray-100 hover:bg-green-100 text-gray-700 px-5 py-3 rounded-2xl text-sm font-medium transition">
-                Ketersediaan
-            </a>
+/* Deteksi perangkat */
 
-            <a href="kerawanan.html"
-                class="whitespace-nowrap bg-gray-100 hover:bg-green-100 text-gray-700 px-5 py-3 rounded-2xl text-sm font-medium transition">
-                Kerawanan
-            </a>
+if(window.innerWidth <= 768){
 
-        </div>
+    window.location.replace(dashboardHP);
 
-    </div>
+}else{
 
-</nav>
+    window.location.replace(dashboardDesktop);
 
-<!-- DASHBOARD -->
+}
 
-<main class="pt-40 pb-6">
-
-    <div class="dashboard-container">
-
-        <iframe
-        class="dashboard-frame"
-        src="https://datastudio.google.com/embed/reporting/35200f89-1e58-4f41-849f-a77bc72dc98b/page/zDtzF?v=2"
-        frameborder="0"
-        allowfullscreen>
-        </iframe>
-
-    </div>
-
-</main>
-
-<!-- FOOTER -->
-
-<footer class="bg-green-700 text-white py-6">
-
-    <div class="max-w-7xl mx-auto px-4 text-center">
-
-        <p class="text-sm">
-            © 2026 Dinas Ketahanan Pangan Kota Ternate
-        </p>
-
-    </div>
-
-</footer>
+</script>
 
 </body>
+
 </html>
+```
